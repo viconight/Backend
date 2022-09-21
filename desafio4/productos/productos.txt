@@ -1,0 +1,36 @@
+[
+  {
+    "id": 1,
+    "title": "pochoclo",
+    "price": 30,
+    "thumbnail": "https://resizer.glanacion.com/resizer/EFP16iP3rqf7OGkQPGGWYqimV9I=/768x0/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/QURTCUXEW5E4BGUCBIEVLWQSPQ.jpg"
+  },
+  {
+    "id": 2,
+    "title": "arroz",
+    "price": 15,
+    "thumbnail": "https://cookimia.com/wp-content/uploads/2012/11/arroz.jpg"
+  },
+  {
+    "id": 3,
+    "title": "fideos",
+    "price": 20,
+    "thumbnail": "https://i.blogs.es/7a7a00/como-hacer-fideos-chinos-con-pollo-y-verduras-3-/1366_2000.jpg"
+  },
+  {
+    "id": 5
+  },
+  {
+    "id": 6
+  },
+  {
+    "title": "papa 1",
+    "price": "150",
+    "thumbnail": "https://i1.sndcdn.com/artworks-000231404692-xrz7w9-t500x500.jpg",
+    "id": 7
+  },
+  {
+    "id": 4,
+    "title": "ravioles"
+  }
+]

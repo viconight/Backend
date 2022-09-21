@@ -1,0 +1,25 @@
+### post
+
+POST http://localhost:55067/api/productos HTTP/1.1
+Content-Type: application/json
+
+### get
+
+GET http://localhost:55067/api/productos/ HTTP/1.1
+
+### put
+
+PUT  http://localhost:55067/api/productos/4 HTTP/1.1
+Content-Type: application/json
+
+ {
+    "id": 4,
+    "title":"ravioles"
+  }
+
+### delete
+
+DELETE http://localhost:55067/api/productos/ HTTP/1.1
+
+
+
