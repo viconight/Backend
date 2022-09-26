@@ -31,7 +31,7 @@ router.post("/productos", async (req, res) => {
 router.put("/productos/:id", async (req, res) => {
       let id = parseInt(req.params.id);
       let { body: data } = req;
-      const arrayProductos = await productos.modificar(id, data);
+      const arrayProductos = await productos.modify(id, data);
       !arrayProductos && res.status(404).json(noEncontrado);
       res.status(200).end();
 });

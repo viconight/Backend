@@ -1,9 +1,81 @@
 const fs = require('fs');
 
-class Container {
+module.exports = class Container {
   constructor(file) {
     this.file = file;
   }
+
+  async save(producto) {
+    try {
+          if (!this.knowIfExists(this.file)) {
+                console.log(
+                      `No se encontro el archivo ${this.file}\n se procede a crear uno nuevo`
+                );
+                let arrayProductos = [];
+                producto["id"] = 1;
+                arrayProductos.push(producto);
+                console.log("se esta agregando el producto");
+                await this.writeFile(
+                      this.file,
+                      arrayProductos
+                );
+                console.log(
+                      `Se agrego un nuevo producto con la id ${producto["id"]}`
+                );
+                return producto["id"];
+          } else {
+                if (this.writeFile(this.file)) {
+                      const data = await this.readFile(this.file);
+                      if (data.length === 0) {
+                            producto["id"] = 1;
+                      } else {
+                            let lastId = data[data.length - 1].id;
+                            producto["id"] = lastId + 1;
+                      }
+                      data.push(producto);
+                      console.log("se esta agregando el producto");
+                      this.writeFile(this.file, data);
+                      console.log(
+                            `Se agrego un nuevo producto con la id ${producto["id"]}`
+                      );
+                      return producto["id"];
+                }
+          }
+    } catch (error) {
+          console.log(error.message);
+    }
+}
+
+  async getById(id) {
+    try {
+      const contenido = await this.getAll();
+      let buscarId = contenido.find((prod) => prod.id === id);
+      console.log(buscarId);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  async writeFile(file, contenido) {
+    try {
+      await fs.writeFileSync(
+        file,
+         JSON.stringify(contenido, null, 2),
+         "utf-8"
+        );
+    } catch (error) {
+        console.log(error.message);
+    }
+  }
+
+  async readFile(file) {
+    try {
+          const data = await fs.readFileSync(file, "utf-8");
+          return JSON.parse(data);
+    } catch (error) {
+          console.log(error.message);
+    }
+}
 
   knowIfExists(file) {
     try {
@@ -14,27 +86,6 @@ class Container {
           }
     } catch (error) {
           console.log(error.message);
-    }
-}
-  async save(objeto) {
-    try {
-      for (let i = 0; i < objeto.length; i++) {
-        objeto[i].id = 1 + i;
-      }
-      console.log(`se guardaron ${objeto.length} productos!`);
-      await fs.promises.writeFile(this.file, JSON.stringify(objeto));
-    } catch (error) {
-      console.log(error);
-    }
-  }
-
-  async getById(id) {
-    try {
-      const contenido = await this.getAll();
-      let buscarId = contenido.find((prod) => prod.id === id);
-      console.log(buscarId);
-    } catch (error) {
-      console.log(error);
     }
   }
 
@@ -62,7 +113,7 @@ class Container {
                       data = data.filter((item) => item.id !== id);
                       dataId = { id: id, ...contenido };
                       data.push(dataId);
-                      this.writeFile(this.archivo, data);
+                      this.writeFile(this.file, data);
                       console.log(`se modifico la Id:${id}`);
                 }
           }
@@ -92,4 +143,3 @@ class Container {
   }
 }
 
-module.exports = Container;
