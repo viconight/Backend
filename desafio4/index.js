@@ -59,7 +59,7 @@ router.delete('/:id', async (req, res) => {
 
 const PORT = 8080;
 const server = app.listen(PORT, () => {
-console.log(` >>>>> 🚀 Server started at http://localhost:${PORT}`)
+console.log(`Server started at http://localhost:${PORT}`)
 })
 
 server.on('error', (err) => console.log(err));
