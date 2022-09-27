@@ -1,39 +1,65 @@
-const express = require("express");
-const useragent = require("express-useragent");
-const path = require("path");
-
-const productos = require("./routers/productos");
-
-
+const express = require('express');
+const Contenedor = require('./src/contenedor')
+const contenedor = new Contenedor("productos.json");
 const app = express();
-
-const PORT = process.env.NODE_PORT;
-const ENV = process.env.NODE_ENV;
+app.use(express.static('public'));
 
 
 app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-app.use("/static", express.static(path.join(__dirname, "public")));
+app.use(express.urlencoded({extended:true}));
+
+const router = express.Router();
 
 
-app.use(useragent.express());
+app.use('/api/productos', router);
 
-app.use("/api", productos);
+// GET /api/productos
+router.get('/', async (req, res) => {
+    const products = await contenedor.getAll();
+    res.status(200).json(products)
+})
+
+// GET /api/productos/:id
+router.get('/:id', async (req, res) => {
+    const {id} = req.params;
+    const product = await contenedor.getById(id);
+
+    product
+        ? res.status(200).json(product)
+        : res.status(404).json({error: "Producto no encontrado"});
+    
+})
+
+// POST /api/productos
+router.post('/', async (req,res) => {
+    const {body} = req;
+    const newProductId = await contenedor.save(body);
+    res.status(200).send(`Producto agregado con el ID: ${newProductId}`)
+})
+
+// PUT /api/productos/:id
+router.put('/:id', async (req, res) => {
+    const {id} = req.params;
+    const {body} = req;
+    const wasUpdated = await contenedor.updateById(id,body);
+    wasUpdated
+        ? res.status(200).send(`El producto de ID: ${id} fue actualizado`)
+        : res.status(404).send(`El producto no fue actualizado porque no se encontró el ID: ${id}`);
+})
+
+// DELETE /api/productos/:id
+router.delete('/:id', async (req, res) => {
+    const {id} = req.params;
+    const wasDeleted = await contenedor.deleteById(id);
+    wasDeleted 
+        ? res.status(200).send(`El producto de ID: ${id} fue borrado`)
+        : res.status(404).send(`El producto no fue borrado porque no se encontró el ID: ${id}`);
+})
 
 
-app.use(function (err, req, res, next) {
-      console.error(err.stack);
-      res.status(500).send("Something broke!");
-});
-
+const PORT = 8080;
 const server = app.listen(PORT, () => {
-      console.log(
-            `Servidor http esta escuchando en el puerto ${
-                  server.address().port
-            }`
-      );
-      console.log(`http://localhost:${server.address().port}`);
-      console.log(`Environment:${ENV}`);
-});
+console.log(` >>>>> 🚀 Server started at http://localhost:${PORT}`)
+})
 
-server.on("error", (error) => console.log(`Error en servidor ${error}`));
+server.on('error', (err) => console.log(err));

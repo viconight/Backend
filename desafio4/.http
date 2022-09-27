@@ -1,22 +1,26 @@
 ### post
 
-POST http://localhost:56633/api/productos HTTP/1.1
+POST http://localhost:8080/api/productos/ HTTP/1.1
 Content-Type: application/json
 
 ### get
 
-GET http://localhost:56633/api/productos/ HTTP/1.1
+GET http://localhost:8080/api/productos/3 HTTP/1.1
 
 ### put
 
-PUT  http://localhost:56633/api/productos/ HTTP/1.1
+PUT  http://localhost:8080/api/productos/1 HTTP/1.1
 Content-Type: application/json
-  
-  
+
+   {
+    "id": 1,
+    "title": "pera",
+    "price": 30,
+    "thumbnail": "https://resizer.glanacion.com/resizer/EFP16iP3rqf7OGkQPGGWYqimV9I=/768x0/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/QURTCUXEW5E4BGUCBIEVLWQSPQ.jpg"
+  }
 
 
 ### delete
 
-DELETE http://localhost:56633/api/productos/ HTTP/1.1
+DELETE http://localhost:8080/api/productos/11 HTTP/1.1
   
-
