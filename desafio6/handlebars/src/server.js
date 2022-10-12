@@ -30,7 +30,7 @@ app.engine('hbs', engine({
 }))
 
 io.on('connection', async(socket) => {
-    console.log(' Usuario conectado')
+    console.log('Usuario conectado')
     
     const productos = await contenedor.getAll();
     socket.emit('bienvenidoLista', productos )
@@ -54,7 +54,7 @@ io.on('connection', async(socket) => {
     })
     
     socket.on('disconnect', () => {
-        console.log(' Usuario desconectado')
+        console.log('Usuario desconectado')
     })
     
 })
@@ -76,9 +76,9 @@ app.get('/', (req,res) => {
 })
 
 
-const PORT = 8000;
+const PORT = 8080;
 server.listen(PORT, () => {
-    console.log(` Escuchando El Servidor http://localhost:${PORT}`)
+    console.log(`Server started at http://localhost:${PORT}`)
 })
 
 server.on('error', (err) => console.log(err))
