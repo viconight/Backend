@@ -1,0 +1,31 @@
+[
+  {
+    "id": 1,
+    "timestamp": 1666149679723,
+    "nombre": "One Piece",
+    "descripcion": "Famoso manga del autor eiichiro oda",
+    "codigo": "",
+    "foto": "https://m.media-amazon.com/images/I/51xRyPQYUmL._AC_SY780_.jpg",
+    "precio": 1100,
+    "stock": 100
+  },
+  {
+    "id": 2,
+    "timestamp": 1666150005600,
+    "nombre": "Dragon Ball",
+    "descripcion": "Famoso manga del autor akira toriyama",
+    "codigo": "",
+    "foto": "https://m.media-amazon.com/images/I/71u0UjsSrnL.jpg",
+    "precio": 1100,
+    "stock": 100
+  },
+  {
+    "id": 3,
+    "timestamp": 1666150097465,
+    "nombre": "Naruto",
+    "descripcion": "Famoso manga del autor masashi kishimoto",
+    "foto": "https://m.media-amazon.com/images/I/51gQV80M8qL._AC_SY780_.jpg",
+    "precio": 1100,
+    "stock": 100
+  }
+]

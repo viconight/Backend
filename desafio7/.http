@@ -3,20 +3,31 @@
 POST http://localhost:8080/api/productos/ HTTP/1.1
 Content-Type: application/json
 
-{"title":"Naruto","price":1100,"description":"Some description for product 2","code":"XP-2","image":"UrlProduct2.com","stock":100}
-
+  {
+        "nombre": "One Piece",
+        "descripcion": "Famoso manga del autor eiichiro oda",
+        "foto": "https://m.media-amazon.com/images/I/51xRyPQYUmL._AC_SY780_.jpg",
+        "precio": 1100,
+        "stock": 100
+  }
 ### get
 
-GET http://localhost:8080/api/productos/2 HTTP/1.1
+GET http://localhost:8080/api/productos/1 HTTP/1.1
 
 
 
 ### put
 
-PUT  http://localhost:8080/api/productos/2 HTTP/1.1
+PUT  http://localhost:8080/api/productos/3 HTTP/1.1
 Content-Type: application/json
-
-{"title":"pokemon","price":1100,"description":"Some description for product 2","code":"XP-2","image":"UrlProduct2.com","stock":100}
+ 
+ {
+        "nombre": "Naruto",
+        "descripcion": "Famoso manga del autor masashi kishimoto",
+        "foto": "https://m.media-amazon.com/images/I/51gQV80M8qL._AC_SY780_.jpg",
+        "precio": 1100,
+        "stock": 100
+  }
 
 ### delete
 
@@ -35,8 +46,16 @@ POST http://localhost:8080/api/carrito/1/productos/ HTTP/1.1
 Content-Type: application/json
 
 {
-    "id":2
+    "id": 2,
+    "timestamp": 1666150005600,
+    "nombre": "Dragon Ball",
+    "descripcion": "Famoso manga del autor akira toriyama",
+    "codigo": "",
+    "foto": "https://m.media-amazon.com/images/I/71u0UjsSrnL.jpg",
+    "precio": 1100,
+    "stock": 100
 }
+
 
 ### get
 
@@ -46,10 +65,11 @@ GET http://localhost:8080/api/carrito/1/productos HTTP/1.1
 
 ### put
 
-PUT  http://localhost:8080/api/productos/1 HTTP/1.1
+PUT  http://localhost:8080/api/productos/ HTTP/1.1
 Content-Type: application/json
 
 
 ### delete
 
-DELETE http://localhost:8080/api/carrito/1/productos/2 HTTP/1.1
+DELETE http://localhost:8080/api/carrito/1/productos/ HTTP/1.1
+
