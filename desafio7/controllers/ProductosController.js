@@ -5,8 +5,8 @@ const productos = [
       //  id: 1,
       //  timestamp: Date.now(),
       //  nombre: "Naruto",
-      //  descripcion: "Famoso manga del autor masashi kishimoto",
-      //  foto: "https://static.wikia.nocookie.net/naruto/images/b/be/Naruto_Volumen_1.png/revision/latest?cb=20160917231224&path-prefix=es",
+      //  nombre: "One Piece",
+      //  descripcion: "Famoso manga del autor eiichiro oda",
       //  precio: 1100,
       //  stock: 100
       //},
@@ -22,8 +22,8 @@ const productos = [
       //{
       //  id: 3,
       //  timestamp: Date.now(),
-      //  nombre: "One Piece",
-      //  descripcion: "Famoso manga del autor eiichiro oda",
+      //  nombre: "Naruto",
+      //  descripcion: "Famoso manga del autor masashi kishimoto",
       //  foto: "https://m.media-amazon.com/images/I/51xRyPQYUmL._AC_SY780_.jpg",
       //  precio: 1100,
       //  stock: 100

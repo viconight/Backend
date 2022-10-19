@@ -1,7 +1,22 @@
 const Contenedor = require("../escribirCarritos");
 
 const carritos = [
-    
+   // {
+   //     id": 1,
+   //     timestamp: Date.now(),
+   //     productos: [
+   //       {
+   //         timestamp: Date.now(),
+   //         id: 1,
+   //         nombre: "One Piece",
+   //         descripcion: "Famoso manga del autor eiichiro oda",
+   //         codigo: "",
+   //         foto: "https://m.media-amazon.com/images/I/51xRyPQYUmL._AC_SY780_.jpg",
+   //         precio: 1100,
+   //         stock": 100
+   //       }
+   //     ]
+   //   }
 ];
 
 
