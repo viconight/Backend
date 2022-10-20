@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="/socket.io/socket.io.min.js"></script>
+    <title>Desafio 8</title>
+</head>
+<body>
+    <div>
+        <h2>Ingrese productos</h2>
+        <form id="form-products" action="http://localhost:8080/" method="post">
+            <label for="title"><i><b>Nombre</b></i></label>
+            <input id="input-title" class="mb-3" type="text" name="title" required placeholder="Calculadora"/>
+            <label for="price"><i><b>Precio</b></i></label>
+            <input id="input-price" class="mb-3" type="text" name="price" required placeholder="123.45"/>
+            <label for="thumbnail"><i><b>Foto URL</b></i></label>
+            <input id="input-thumbnail" class="mb-3" type="text" name="thumbnail" required placeholder=""/>
+            <button type="submit">Enviar</button>
+        </form>
+    </div>
+    {{{body}}}
+    <div>
+        <h2>Centro de Mensajes</h2>
+        <form id="form-message">
+            <input id="input-email" type="email" name="email" required placeholder="Email"/>
+            <hr>
+            <ul id="list-messages">
+
+            </ul>
+            <div>
+                <input id="input-message" type="text" name="message" required placeholder="Ingresá un mensaje...">
+                <button type="submit">Enviar!</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

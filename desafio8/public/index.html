@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="/socket.io/socket.io.min.js"></script>
+    <title>Desafio 8</title>
+</head>
+<body>
+    <div>
+        <h2>Ingrese productos</h2>
+        <form id="form-products" action="http://localhost:8080/api/productos" method="post">
+            <label for="title"><i><b>Nombre</b></i></label>
+            <input id="input-title" type="text" name="title" required placeholder="Manga"/>
+            <label for="price"><i><b>Precio</b></i></label>
+            <input id="input-price" type="text" name="price" required placeholder="990"/>
+            <label for="thumbnail"><i><b>Foto URL</b></i></label>
+            <input id="input-thumbnail" type="text" name="thumbnail" required placeholder="https://images.wikidexcdn.net/mwuploads/wikidex/4/4a/latest/20190505022654/Libros_de_manga.png"/>
+            <button type="submit">Enviar</button>
+        </form>
+    </div>
+    
+    <div>
+        <table id="table-products">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th class="text-center">Precio</th>
+                    <th class="text-center">Foto</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+            </tbody>
+        </table>
+    </div>
+
+    <div>
+        <h2>Centro de Mensajes</h2>
+        <form id="form-message">
+            <input id="input-email" type="email" name="email" required placeholder="Email"/>
+            <hr>
+            <ul id="list-messages">
+
+            </ul>
+            <div>
+                <input id="input-message" type="text" name="message" required placeholder="Ingresá un mensaje...">
+                <button type="submit">Enviar!</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
