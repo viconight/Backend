@@ -16,7 +16,7 @@
     let messages = [];
     let products = [];
 
-    
+    // Consigo los elementos de mi backend, los sumo al array de productos y los renderizo
     fetch('http://localhost:8080/api/productos')
     .then(response => response.json())
     .then(data => {
@@ -31,7 +31,7 @@
         })
     })   
 
-    
+    // Consigo el template para renderizar en la tabla los productos que se agregan
     fetch('/js/templates/template.hbs')
     .then(response => response.text())
     .then(text => {

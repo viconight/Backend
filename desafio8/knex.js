@@ -7,8 +7,9 @@ const optionsMariaDB = {
       port: 3306,
       user: 'root',
       password: '',
-      database: 'desafio7'
+      database: 'test'
     },
+    
 }
 
 const optionsSqlite3 = {
@@ -16,6 +17,7 @@ const optionsSqlite3 = {
     connection: {
       filename: './db/ecommerce.sqlite'
     },
+    useNullAsDefault: true
 }
 
 async function createTable() {
@@ -23,7 +25,7 @@ async function createTable() {
     try {
         const exist = await knexInstance.schema.hasTable('productos')
         if (exist) {
-            console.log("La tabla productos ya existe");
+            console.log("Products table already exists");
             return;
         }
 
@@ -34,7 +36,7 @@ async function createTable() {
             table.string('thumbnail', 150).notNullable()
             table.primary('id');
         })
-        console.log("Tabla productos creada"); 
+        console.log("Products table created"); 
 
     } catch (error) {
         console.error(error.message);
@@ -50,7 +52,7 @@ async function createTableSqlite() {
     try {
         const exist = await knexInstance.schema.hasTable('ecommerce')
         if (exist) {
-            console.log("La tabla ecommerce ya existe");
+            console.log("The ecommerce table already exists");
             return;
         }
 
@@ -59,7 +61,7 @@ async function createTableSqlite() {
             table.string('message', 200).notNullable()
             table.string('date', 20).notNullable()
         })
-        console.log("Tabla ecommerce creada"); 
+        console.log("Ecommerce table created"); 
 
     } catch (error) {
         console.error(error.message);
@@ -74,7 +76,7 @@ async function insertProducts(products) {
     const knexInstance = knex(optionsMariaDB);
     try {
         const product = await knexInstance('productos').insert(products);
-        console.log('Productos creados');
+        console.log('Products created');
         return product;
     } catch (error) {
         console.error(error.message);
@@ -89,7 +91,7 @@ async function insertMessage(message) {
     const knexInstance = knex(optionsSqlite3);
     try {
         const product = await knexInstance('ecommerce').insert(message);
-        console.log('Productos creados');
+        console.log('Products created');
         return product;
     } catch (error) {
         console.error(error.message);
@@ -104,7 +106,7 @@ async function getProducts() {
     const knexInstance = knex(optionsMariaDB);
     try {
         const products = await knexInstance('productos').select('*');
-        console.log('Productos encontrados');
+        console.log('Products created');
         return products;
     } catch (error) {
         console.error(error.message);
@@ -119,7 +121,7 @@ async function getMessages() {
     const knexInstance = knex(optionsSqlite3);
     try {
         const products = await knexInstance('ecommerce').select('*');
-        console.log('Mensajes encontrados');
+        console.log('Found messages');
         return products;
     } catch (error) {
         console.error(error.message);
@@ -134,7 +136,7 @@ async function getProductsByID(condition) {
     const knexInstance = knex(optionsMariaDB);
     try {
         const productFind = await knexInstance('productos').select('*').where(condition);
-        console.log('Producto encontrado por ID');
+        console.log('Product found by ID');
         if (productFind.length == 0) {
             return undefined;
         }
@@ -152,7 +154,7 @@ async function updateProducts(data, conditions) {
     const knexInstance = knex(optionsMariaDB);
     try {
         await knexInstance('productos').update(...data).where(conditions);
-        console.log('Producto encontrado');
+        console.log('Product found');
     } catch (error) {
         console.error(error.message);
         throw error;
@@ -166,7 +168,7 @@ async function deleteProducts(conditions) {
     const knexInstance = knex(optionsMariaDB);
     try {
         const objetoFind = await knexInstance('productos').del().where(conditions);
-        console.log('Producto eliminado');
+        console.log('Removed product');
         return objetoFind;
     } catch (error) {
         console.error(error.message);

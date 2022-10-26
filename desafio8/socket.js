@@ -11,9 +11,9 @@ let products = [];
     try {
         await createTableSqlite();
         // let asd = {
-        //     email: "Coder House",
-        //     message: "Bienvenidos",
-        //     date: "01/01/2022 00:00:00",
+        //     email: "Victor",
+        //     message: "Bienvenidos A Mi Pagina",
+        //     date: "18/10/2022 00:00:00",
         // }
         // await insertMessage(asd);
         const savedMessages = await getMessages();
@@ -32,7 +32,7 @@ function initSocket(httpServer) {
 
 function setEvents(io) {
     io.on('connection', (socketClient) => {
-        console.log('Se conecto un nuevo cliente con el id', socketClient.id);
+        console.log('A new client connected with the id', socketClient.id);
         
         socketClient.emit('history-messages', messages);
         
@@ -52,7 +52,7 @@ function setEvents(io) {
         })
 
         socketClient.on('disconnection', () => {
-        console.log('Se desconecto el cliente con el id', socketClient.id);
+        console.log('The client with the id was disconnected', socketClient.id);
         })
     })
 }

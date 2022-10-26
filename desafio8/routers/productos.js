@@ -27,12 +27,12 @@ router.post('/', async (req, res) => {
 })
 
 router.put('/:id', async (req, res) => {
-    
+   
     const producto = await ProductosController.actualizar(req.params.id, req);
     if (producto) { 
         res.status(204).end();
     } else (
-        res.status(404).json({ error : 'producto no encontrado' })
+        res.status(404).json({ error : 'product not found' })
     )
 })
 
@@ -42,7 +42,7 @@ router.delete('/:id', async (req, res) => {
     if (producto) {
         res.status(204).end();
     } else (
-        res.status(404).json({ error : 'producto no encontrado' })
+        res.status(404).json({ error : 'product not found' })
     )
 })
 
