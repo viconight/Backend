@@ -1,0 +1,18 @@
+[
+  {
+    "id": 1,
+    "timestamp": 12323453457,
+    "productos": [
+      {
+        "timestamp": 12323453456,
+        "id": 1,
+        "nombre": "One Piece",
+        "descripcion": "Famoso manga del autor eiichiro oda",
+        "codigo": "001",
+        "foto": "https://m.media-amazon.com/images/I/51xRyPQYUmL._AC_SY780_.jpg",
+        "precio": 1100,
+        "stock": 5
+      }
+    ]
+  }
+]
