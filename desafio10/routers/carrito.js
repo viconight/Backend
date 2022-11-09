@@ -4,26 +4,24 @@ import { carritosDao as carritosApi } from '../daos/index.js'
 const router = Router();
 
 router.post('/', async (req, res) => {
-    
     const carritoId = await carritosApi.guardar(req);
     res.status(201).json({ ID : carritoId.id});
 })
 
 router.delete('/:id', async (req, res) => {
-    
     const carrito = await carritosApi.borrar(req.params.id);
     if (carrito) {
         res.status(204).end();
     } else (
         res.status(404).json({
             error: -2,
-            descripcion: `ruta http://localhost:8080/api/carrito/${req.params.id} metodo DELETE no implementada` 
+            descripcion: `ruta http://localhost:8080/api/carrito/${req.params.id} metodo DELETE no implementada` // 404 NOT FOUND
          })
     )
 })
 
 router.get('/:id/productos', async (req, res) => {
-    
+
     const carrito = await carritosApi.listar(req.params.id);
     if (carrito) {
         res.status(200).json(carrito);
@@ -37,7 +35,6 @@ router.get('/:id/productos', async (req, res) => {
 
 
 router.post('/:id/productos', async (req, res) => {
-    
     const producto = await carritosApi.agregarProducto(req, req.params.id);
     if (producto) { 
         res.status(201).json(producto);
@@ -51,7 +48,6 @@ router.post('/:id/productos', async (req, res) => {
 
 
 router.delete('/:id/productos/:id_prod', async (req, res) => {
-    
     const carrito = await carritosApi.borrarProducto(req.params.id, parseInt(req.params.id_prod));
     
     if (carrito == 0) {

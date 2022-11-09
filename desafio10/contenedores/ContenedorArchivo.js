@@ -99,7 +99,7 @@ class ContenedorArchivo {
         const index = objs.findIndex(o => o.id == id);
         
         if (index == -1) {
-            return 0; 
+            return 0;
         }
 
         const indexProd = objs[index].productos.findIndex(o => o.id == id_prod);

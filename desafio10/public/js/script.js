@@ -149,7 +149,6 @@
         fetch(`http://localhost:8080/api/carrito/${inputCart.value}/productos`)
         .then(response => response.json())
         .then(data => {
-            
             while (carts.hasChildNodes()) {
                 carts.removeChild(carts.firstChild);
             }

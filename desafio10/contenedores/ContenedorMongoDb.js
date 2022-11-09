@@ -67,7 +67,7 @@ class ContenedorMongoDb {
     }
   
     async borrarAll() {
-        throw new Error('No aplicado');
+        throw new Error('Not applied');
     }
 }
   

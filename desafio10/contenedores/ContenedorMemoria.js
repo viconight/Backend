@@ -70,7 +70,7 @@ class ContenedorMemoria {
         const index = this.elementos.findIndex(p => p.id == id);
         
         if (index == -1) {
-            return 0;
+            return 0; 
         }
 
         const indexProd = this.elementos[index].productos.findIndex(o => o.id == id_prod);

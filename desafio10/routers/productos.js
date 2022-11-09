@@ -6,13 +6,13 @@ const router = Router();
 const administrador = true;
 
 router.get('/', async (req, res) => {
-    
+    // devuelve un array con todos los productos en el servidor
     const productos = await productosApi.listarAll();
     res.status(200).json(productos);
 })
 
 router.get('/:id', async (req, res) => {
-    
+    // devuelve un producto según su id
     const producto = await productosApi.listar(req.params.id);
     if (producto) {
         res.status(200).json(producto);
@@ -25,7 +25,6 @@ router.get('/:id', async (req, res) => {
 })
 
 router.post('/', async (req, res) => {
-   
     const productos = await productosApi.guardar(req);
     if (administrador) {
         // res.status(201).json(productos);
@@ -39,7 +38,6 @@ router.post('/', async (req, res) => {
 })
 
 router.put('/:id', async (req, res) => {
-    
     const producto = await productosApi.actualizar(req.params.id, req);
     if (administrador) {
         if (producto) { 
@@ -53,13 +51,12 @@ router.put('/:id', async (req, res) => {
     } else {
         res.status(403).json({
             error: -1,
-            descripcion: 'ruta http://localhost:8080/api/productos/ metodo PUT no autorizada '
+            descripcion: 'ruta http://localhost:8080/api/productos/ metodo PUT no autorizada ' // 403 FORBIDDEN
         })
     }
 })
 
 router.delete('/:id', async (req, res) => {
-    
     const producto = await productosApi.borrar(req.params.id);
     if (administrador) {
         if (producto) {
