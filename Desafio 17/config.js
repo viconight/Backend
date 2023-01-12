@@ -6,6 +6,6 @@ export default {
         URI: process.env.MONGODB_URI
       },
     firebase: {
-        serviceAccount: '../backendecommerce-4b0bc-firebase-adminsdk-ns5xc-3bdbb38b96.json'
+        serviceAccount: '../backend-bdb66-firebase-adminsdk-d3162-da64c96a79.json'
     },
   }
